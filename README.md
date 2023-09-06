@@ -50,11 +50,11 @@ The automated system will offer the following solutions to the above problems.
 
 1. Clone the repository to your local machine:
 
-git clone https://github.com/VictorOdambatafwa22/phase3WK3_code_challenge
+git clone https://github.com/VictorOdambatafwa22/python-p3-final-project
 
 2. Navigate to the project directory:
 
-cd phase3WK3_code_challenge
+cd python-p3-final-project
 
 
 3. Install the required dependencies:
@@ -84,7 +84,7 @@ cd phase3WK3_code_challenge
 
 
 
-#### Link to the project online repository  https://github.com/VictorOdambatafwa22/library_management_software
+#### Link to the project online repository  https://github.com/VictorOdambatafwa22/python-p3-final-project
 
   ## Support and contact details 🙂
 
