@@ -1,78 +1,116 @@
-# Phase 3 Project: CLI
+# LIBRARY MANAGEMENT SOFTWARE
 
-## Learning Goals
+#### Created on 06-09-2023
 
-- Configure environments with project-specific parameters using Pipenv.
-- Import and use external libraries.
-- Use SQLAlchemy ORM and Alembic to create a database schema and update it as you
-  continue to build your CLI.
-- Use SQLAlchemy ORM to join multiple tables to each other using one-to-one,
-  one-to-many, many-to-many relationships.
-- Use `list`s, `dict`s, and `tuple`s in appropriate contexts.
-- Exercise best practices in CLI design.
+## Description
+         A library is a collection of books,movies for reference purposes.
+                                      
+                                PROBLEM STATEMENT
+I once visited our local polytechnic and found out the institution was not having an automated library management software. They were operating manually and this posed a lot of challenges which include the following
 
-***
+1. Difficulty in knowing total number of books the institution has in it’s library.
+2. Difficulty in keeping track of the books that have been borrowed
+3. Difficulty in keeping track of books that have been borrowed and return date overdue.
+4. Difficulty in penalizing students who have stayed with books past the required duration of time.
+5. Difficulty in searching for a particular book .
 
-## Key Vocab
+                            SOLUTION TO THE ABOVE PROBLEMS
+The automated system will offer the following solutions to the above problems.
 
-- **Command Line**: a text-based interface that is built into your computer's
-operating system. It allows you to access the files and applications on your
-computer manually or through scripts.
-- **Terminal**: the application in Mac OS that allows you to access the command
-line.
-- **Command Shell/Powershell**: the applications in Windows that allow you to access
-the command line.
-- **Command-Line Interface (CLI)**: a text-based interface used to run programs,
-manage files and interact with objects in memory. As the name suggests, it is
-run from the command line.
+1. All the books in the school will be registered in the database
+2. All the students will be registered in the database
+3. All the staff will be registered in the database
+4. Ease of borrowing and returning of books
+5. Ease of search of the book just by entering book ID(ISBN) or title of the book, category etc.
+6. Keep track of borrowed books and the ones due for return.
+7. Easy to penalize students who overstay with books
+ 
 
-***
+- **I have used the following concepts in coming up with the solution:**
 
-## Instructions
+  - SQLAlchemy Migrations
+  
+  - SQLAlchemy Relationships
 
-Welcome to the end of Phase 3! You've learned about a lot in this unit:
+  - Class and Instance Methods
 
-- Python fundamentals.
-- Data structures (and more recently, algorithms).
-- Object-oriented programming.
-- Object inheritance.
-- Class attributes and methods.
-- Configuring applications.
-- SQL fundamentals.
-- Table relations in SQL.
-- Object-relational mapping with Python.
-- Object-relational mapping with SQLAlchemy.
-- Building CLIs.
+  - SQLAlchemy Querying
+  
 
-In this project, we're going to use these skills to create a CLI. We want you to
-display knowledge of as much from Phase 3 as you can- you won't be able to fit
-everything in, but we'll expect to see:
+## Getting Started
 
-- A CLI application that solves a real-world problem and adheres to best
-  practices.
-- A database created and modified with SQLAlchemy ORM with 3+ related tables.
-- A well-maintained virtual environment using Pipenv.
-- Proper package structure in your application.
-- Use of `list`s, `dict`s, and `tuple`s.
+### Prerequisites
+- Web-browser of your choice
+- Github
+- python3
+- vscode (IDE)
 
-***
 
-## Tips and Tricks?
+### Installation
 
-- Think about your database schema before you begin- migrations are a pain!
-- Keep your Python objects, SQLAlchemy objects, and CLI script in separate
-  modules.
-- If you get stuck trying to accomplish a specific task, check online to see if
-  there's a Python library that will make it easier.
-- Consider using [Click][click] or [Fire][fire] to take care of basic CLI tasks
-  for you.
+1. Clone the repository to your local machine:
 
-***
+git clone https://github.com/VictorOdambatafwa22/phase3WK3_code_challenge
 
-## Resources
+2. Navigate to the project directory:
 
-- [Click documentation][click]
-- [The Python Fire Guide][fire]
+cd phase3WK3_code_challenge
 
-[click]: https://click.palletsprojects.com/en/8.1.x/
-[fire]: https://google.github.io/python-fire/guide/
+
+3. Install the required dependencies:
+
+    pip install --upgrade pipenv
+    pipenv install
+    pipenv shell
+
+4. Start the vscode cd .:
+
+
+### Usage
+
+   Navigate to the project folder in the terminal then type 
+   Python3 <name of the file.py>
+   press enter on the keyboard
+
+## Contributors
+ Victor Odambatafwa
+
+
+ ### Technologies Used
+
+    The following have been used on this project:
+
+  Python3.10.12
+
+
+
+#### Link to the project online repository  https://github.com/VictorOdambatafwa22/library_management_software
+
+  ## Support and contact details 🙂
+
+To make a contribution to the code used or any suggestions you can click on the contact link and email us your suggestions.
+
+- Emails: victor.odambatafwa@student.moringaschool.com
+          
+   
+ ## License
+
+Copyright (c) 2022 Group 6 Moringa School
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files , to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
