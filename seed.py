@@ -1,10 +1,11 @@
 from faker import Faker
 import random
-from sqlalchemy import create_engine
+from datetime import datetime
+from sqlalchemy import create_engine,desc
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import insert
 #from models import Borrowing, Book, Student, student_books
-from models import Borrowing, Book, Student
+from models import Borrowing,Returning, Book, Student,Staff,Books_in_student_custody
 if __name__ == "__main__":
     engine = create_engine('sqlite:///librarys.db')
     Session = sessionmaker(bind=engine)
@@ -73,15 +74,37 @@ if __name__ == "__main__":
     elif chosen_option=="4":
         borrowings = []
         borrowing = Borrowing(
-                book_id=input("Enter first name of staff: "),
-                student_id=input("Enter last name of staff: "),
-                borrow_date=input("Enter title of staff: "),   
-                staff_id=input("Enter title of staff: ") 
+                book_id=input("Enter book ID: "),
+                student_id=input("Enter student ID: "),
+                borrow_date=datetime.now(),   
+                staff_id=input("Enter staff ID: ") 
             )
         session.add(borrowing)
         borrowings.append(borrowing)
         session.commit()  
 
+        session.query(Book).update({
+        Book.quantity: Book.quantity - 1
+    })
+        session.commit()  
+
+
+    elif chosen_option=="5":
+        returnings = []
+        returning = Returning(
+                book_id=input("Enter book ID: "),
+                student_id=input("Enter student ID: "),
+                return_date=datetime.now(),   
+                staff_id=input("Enter staff ID: ") 
+            )
+        session.add(returning)
+        returnings.append(returning)
+        session.commit()  
+
+        session.query(Book).update({
+        Book.quantity: Book.quantity + 1
+    })
+        session.commit()  
 
     else:
         returnings = []

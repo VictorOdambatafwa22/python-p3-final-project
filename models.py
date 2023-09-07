@@ -2,7 +2,7 @@ import os
 import sys
 sys.path.append(os.getcwd)
 from datetime import datetime
-from sqlalchemy import (create_engine, PrimaryKeyConstraint, Column, String, Integer, ForeignKey, Table, UniqueConstraint)
+from sqlalchemy import (create_engine, PrimaryKeyConstraint,desc, Column, String, Integer, ForeignKey, Table, UniqueConstraint)
 from sqlalchemy.orm import sessionmaker, relationship, backref
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -28,8 +28,8 @@ class Student(Base):
     last_name = Column(String())
     grade_form = Column(Integer())
 
-    borrowings = relationship("Borrowing", backref=backref ("student"))
-    books = relationship("Book",secondary="student_books", back_populates="students")
+    #borrowings = relationship("Borrowing", backref=backref ("student"))
+    #books = relationship("Book",secondary="student_books", back_populates="students")
     
 
 # ....................class Student....................
@@ -40,11 +40,11 @@ class Staff(Base):
     last_name = Column(String())
     title = Column(String())
 
-    borrowings = relationship("Borrowing", backref=backref ("staff"))
-    books = relationship("Book",secondary="student_books", back_populates="staffs")
+    #borrowings = relationship("Borrowing", backref=backref ("staff"))
+    #books = relationship("Book",secondary="student_books", back_populates="staffs")
 
-    returnings = relationship("Returning", backref=backref ("staff"))
-    books = relationship("Book",secondary="student_books", back_populates="staffs")
+    #returnings = relationship("Returning", backref=backref ("staff"))
+    #books = relationship("Book",secondary="student_books", back_populates="staffs")
 
 
 # ...............................class Book...................
@@ -58,8 +58,8 @@ class Book(Base):
     category = Column(String())
     quantity = Column(Integer())
 
-    borrowings = relationship("Borrowing", backref=backref ("book"))
-    students = relationship("Student", secondary="student_books", back_populates="books")
+    #borrowings = relationship("Borrowing", backref=backref ("book"))
+    #students = relationship("Student", secondary="student_books", back_populates="books")
    
    
 # ...............................class Borrowing...................
@@ -69,7 +69,7 @@ class Borrowing(Base):
     id = Column(Integer(), primary_key=True)
     book_id = Column(Integer(), ForeignKey('books.id'))
     student_id = Column(Integer(), ForeignKey('students.id'))
-    borrow_date = Column(String()) 
+    borrow_date = Column(String())
     staff_id = Column(Integer(), ForeignKey('staffs.id'))
 
 
