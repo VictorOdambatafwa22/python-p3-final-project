@@ -25,6 +25,7 @@ class Student(Base):
     id = Column(Integer(), primary_key=True)
     first_name = Column(String())
     last_name = Column(String())
+    grade_form = Column(Integer())
 
     borrowings = relationship("Borrowing", backref=backref ("student"))
     books = relationship("Book",secondary="student_books", back_populates="students")
@@ -38,11 +39,13 @@ class Book(Base):
     id = Column(Integer(), primary_key=True)
     ISBN = Column(Integer())
     title = Column(String())
+    author= Column(String())
     category = Column(String())
     quantity = Column(Integer())
 
     borrowings = relationship("Borrowing", backref=backref ("book"))
     students = relationship("Student", secondary="student_books", back_populates="books")
+   
    
 # ...............................class Borrowing...................
 

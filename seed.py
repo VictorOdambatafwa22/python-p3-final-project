@@ -9,52 +9,33 @@ if __name__ == "__main__":
     engine = create_engine('sqlite:///librarys.db')
     Session = sessionmaker(bind=engine)
     session = Session()
-    session.query(Student).delete()
-    fake = Faker()
-
-
+  
     students = []
-    for _ in range(20):
-        student = Student(
-            first_name=fake.first_name(),
-            last_name=fake.last_name()
-           
 
+    student = Student(
+            first_name=input("Enter first name: "),
+            last_name=input("Enter last name: "),
+            grade_form=input("Enter form: ")         
         )
-        session.add(student)
-        students.append(student)
+    session.add(student)
+    students.append(student)
 
+    session.commit()
+
+    
 
     books = []
-    for _ in range(20):
-        book = Book(
-            ISBN=fake.ISBN(),
-            title=fake.title(),
-            category=fake.category(),
-            quantity=fake.quantity()
 
+    book = Book(
+            ISBN=input("Enter ISBN: "),
+            title=input("Enter book title: "),
+            author=input("Enter book author: "),
+            category=input("Enter book category: "),
+            quantity=input("Enter number of copies: ")         
         )
-        session.add(book)
-        books.append(book)
+    session.add(book)
+    books.append(book)
 
-
-    existing_combinations = set()
-
-    for _ in range(50):
-        student_id = random.randint(1, 20)
-        book_id = random.randint(1, 20)
-        if (student_id, book_id) in existing_combinations:
-            continue
-        existing_combinations.add((student_id, book_id))
-        student_book_data = {"student_id": student_id, "book_id": book_id}
-        stmt = insert(student_books).values(student_book_data)
-        session.execute(stmt)
-
-    for _ in range(50):
-        borrowing = Borrowing(
-            student_id=random.randint(1, 20),
-            book_id=random.randint(1, 20)
-        )
-        session.add(borrowing)
     session.commit()
+
     session.close()

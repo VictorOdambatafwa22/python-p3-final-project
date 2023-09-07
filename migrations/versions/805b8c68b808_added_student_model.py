@@ -1,8 +1,8 @@
-"""Added models
+"""Added Student model
 
-Revision ID: 61d299afe1ce
-Revises: 98bb117cc719
-Create Date: 2023-09-07 00:47:43.701547
+Revision ID: 805b8c68b808
+Revises: c73f06038770
+Create Date: 2023-09-07 13:50:13.591373
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '61d299afe1ce'
-down_revision = '98bb117cc719'
+revision = '805b8c68b808'
+down_revision = 'c73f06038770'
 branch_labels = None
 depends_on = None
 
@@ -22,6 +22,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('ISBN', sa.Integer(), nullable=True),
     sa.Column('title', sa.String(), nullable=True),
+    sa.Column('author', sa.String(), nullable=True),
     sa.Column('category', sa.String(), nullable=True),
     sa.Column('quantity', sa.Integer(), nullable=True),
     sa.PrimaryKeyConstraint('id')
