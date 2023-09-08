@@ -45,6 +45,7 @@ if __name__ == "__main__":
         session.add(student)
         students.append(student)
         session.commit()
+        print("Student successfully added to the database") 
 
 
     elif chosen_option=="2":
@@ -57,6 +58,7 @@ if __name__ == "__main__":
         session.add(staff)
         staffs.append(staff)
         session.commit()  
+        print("Staff successfully added to the database") 
 
     elif chosen_option=="3":
         books = []
@@ -69,7 +71,8 @@ if __name__ == "__main__":
             )
         session.add(book)
         books.append(book)
-        session.commit()   
+        session.commit()  
+        print("Book successfully added to the database")  
 
     elif chosen_option=="4":
         borrowings = []
@@ -83,10 +86,12 @@ if __name__ == "__main__":
         borrowings.append(borrowing)
         session.commit()  
 
+
         session.query(Book).update({
         Book.quantity: Book.quantity - 1
     })
-        session.commit()  
+        session.commit()
+        print("Book successfully borrowed")   
 
 
     elif chosen_option=="5":
@@ -105,7 +110,53 @@ if __name__ == "__main__":
         Book.quantity: Book.quantity + 1
     })
         session.commit()  
+        print("Book successfully returned") 
+     
+    elif chosen_option=="6": 
+        id=input("Enter student id: ")
+        first_name=input("Enter new first name : ")
+        student=session.query(Student).filter(Student.id==int(id)).first()
+        student.first_name = first_name
+        session.commit()
+        print("Student successfully updated") 
 
+    elif chosen_option=="7": 
+        id=input("Enter staff id: ")
+        first_name=input("Enter new first name : ")
+        staff=session.query(Staff).filter(Staff.id==int(id)).first()
+        staff.first_name = first_name
+        session.commit()
+        print("Staff successfully updated")    
+         
+    elif chosen_option=="8": 
+        id=input("Enter book id: ")
+        title=input("Enter new title : ")
+        book=session.query(Book).filter(Book.id==int(id)).first()
+        book.title = title
+        session.commit()
+        print("Book successfully updated")  
+
+    elif chosen_option=="9": 
+        books=session.query(Book).all()
+        print("-"*70)
+        for book in books:          
+            print(f' {book.id} {book.ISBN} {book.title} {book.author} {book.category} {book.quantity}') 
+            print("-"*70)
+
+    elif chosen_option=="10": 
+        students=session.query(Student).all()
+        print("-"*70)
+        for student in students:          
+            print(f' {student.id} {student.first_name} {student.last_name} {student.grade_form}') 
+            print("-"*70)    
+
+
+    elif chosen_option=="11": 
+        staffs=session.query(Staff).all()
+        print("-"*70)
+        for staff in staffs:          
+            print(f' {staff.id} {staff.first_name} {staff.last_name} {staff.title}') 
+            print("-"*70)   
     else:
         returnings = []
         returning = Returning(
